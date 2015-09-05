@@ -2,7 +2,7 @@ FROM rocker/shiny:latest
 
 MAINTAINER Xianying Tan "shrektan@126.com"
 
-RUN RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y \
     libssh2-1-dev \
     libv8-3.14-dev \
     libxml2-dev \

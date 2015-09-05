@@ -23,8 +23,7 @@ RUN R -e "devtools::install_github('Rdatatable/data.table')"
 RUN R -e "devtools::install_github('daattali/shinyjs')"
 RUN R -e "devtools::install_github('rstudio/DT')"
 RUN R -e "devtools::install_github('ebailey78/shinyBS', ref = 'shinyBS3')"
-RUN R -e "devtools::install_github('imanuelcostigan/RSQLServer')"
-RUN R -e "devtools::install_github('rstudio/leaflet')"
+RUN R -e "install.packages(c('leaflet'), repos = 'https://cran.rstudio.com/')"
 
 # After this you might want to change the default user of shiny-server from shiny to docker so that you can have the write access
 

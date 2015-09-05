@@ -2,7 +2,7 @@ FROM rocker/shiny:latest
 
 MAINTAINER Xianying Tan "shrektan@126.com"
 
-RUN apt-get install -y \
+RUN RUN apt-get update && apt-get install -y \
     libssh2-1-dev \
     libv8-3.14-dev \
     libxml2-dev \
@@ -17,13 +17,13 @@ RUN R -e "install.packages(c('lubridate', 'stringr', 'dplyr', 'tidyr', 'readr', 
 RUN R -e "install.packages(c('xts', 'PerformanceAnalytics'),repos='https://cran.rstudio.com/')"
 RUN R -e "install.packages(c('shiny', 'shinythemes', 'shinydashboard', 'dygraphs', 'DiagrammeR'),repos='https://cran.rstudio.com/')"
 RUN R -e "install.packages(c('R6', 'V8', 'testthat'), repos = 'https://cran.rstudio.com/')"
+RUN R -e "install.packages(c('leaflet'), repos = 'https://cran.rstudio.com/')"
 
 # Github version packages
 RUN R -e "devtools::install_github('Rdatatable/data.table')"
 RUN R -e "devtools::install_github('daattali/shinyjs')"
 RUN R -e "devtools::install_github('rstudio/DT')"
 RUN R -e "devtools::install_github('ebailey78/shinyBS', ref = 'shinyBS3')"
-RUN R -e "install.packages(c('leaflet'), repos = 'https://cran.rstudio.com/')"
 
 # After this you might want to change the default user of shiny-server from shiny to docker so that you can have the write access
 
